@@ -26,6 +26,8 @@ module simple_processor #(
 
     // Signifies there is active request for memory at address dmem_addr_o
     output logic                      dmem_req_o,
+    // Signifies the request is write, otherwise read
+    output logic                      dmem_wr_o,
     // Data address bus
     output logic [MEM_ADDR_WIDTH-1:0] dmem_addr_o,
     // Write data bus
