@@ -1,0 +1,31 @@
+<svg height="640" width="640" xmlns="http://www.w3.org/2000/svg">
+<rect width="100%" height="100%" x="0" y="0" style="fill:white;stroke:white;stroke-width:0"/>
+<g style="fill:white;stroke:black;stroke-width:1">
+<rect width="525" height="525" x="60" y="60"/>
+<polygon points="10,95 10,85 30,85 40,95 60,95 40,95 30,105 10,105 10,95"/>
+<text x="65" y="85" dominant-baseline="hanging" text-anchor="start" font-size="20" style="fill:black;stroke:black;stroke-width:0">clk_i</text>
+<polygon points="10,145 10,135 30,135 40,145 60,145 40,145 30,155 10,155 10,145"/>
+<text x="65" y="135" dominant-baseline="hanging" text-anchor="start" font-size="20" style="fill:black;stroke:black;stroke-width:0">arst_ni</text>
+<polygon points="10,245 10,235 30,235 40,245 60,245 40,245 30,255 10,255 10,245"/>
+<text x="65" y="235" dominant-baseline="hanging" text-anchor="start" font-size="20" style="fill:black;stroke:black;stroke-width:0">boot_addr_i</text>
+<polygon points="585,95 605,95 605,85 625,85 635,95 625,105 605,105 605,95 585,95"/>
+<text x="580" y="85" dominant-baseline="hanging" text-anchor="end" font-size="20" style="fill:black;stroke:black;stroke-width:0">imem_req_o</text>
+<polygon points="585,145 605,145 605,135 625,135 635,145 625,155 605,155 605,145 585,145"/>
+<text x="580" y="135" dominant-baseline="hanging" text-anchor="end" font-size="20" style="fill:black;stroke:black;stroke-width:0">imem_addr_o</text>
+<polygon points="585,195 605,195 615,185 635,185 635,195 635,205 615,205 605,195 585,195"/>
+<text x="580" y="185" dominant-baseline="hanging" text-anchor="end" font-size="20" style="fill:black;stroke:black;stroke-width:0">imem_rdata_i</text>
+<polygon points="585,245 605,245 615,235 635,235 635,245 635,255 615,255 605,245 585,245"/>
+<text x="580" y="235" dominant-baseline="hanging" text-anchor="end" font-size="20" style="fill:black;stroke:black;stroke-width:0">imem_ack_i</text>
+<polygon points="585,345 605,345 605,335 625,335 635,345 625,355 605,355 605,345 585,345"/>
+<text x="580" y="335" dominant-baseline="hanging" text-anchor="end" font-size="20" style="fill:black;stroke:black;stroke-width:0">dmem_req_o</text>
+<polygon points="585,395 605,395 605,385 625,385 635,395 625,405 605,405 605,395 585,395"/>
+<text x="580" y="385" dominant-baseline="hanging" text-anchor="end" font-size="20" style="fill:black;stroke:black;stroke-width:0">dmem_addr_o</text>
+<polygon points="585,445 605,445 605,435 625,435 635,445 625,455 605,455 605,445 585,445"/>
+<text x="580" y="435" dominant-baseline="hanging" text-anchor="end" font-size="20" style="fill:black;stroke:black;stroke-width:0">dmem_wdata_o</text>
+<polygon points="585,495 605,495 615,485 635,485 635,495 635,505 615,505 605,495 585,495"/>
+<text x="580" y="485" dominant-baseline="hanging" text-anchor="end" font-size="20" style="fill:black;stroke:black;stroke-width:0">dmem_rdata_i</text>
+<polygon points="585,545 605,545 615,535 635,535 635,545 635,555 615,555 605,545 585,545"/>
+<text x="580" y="535" dominant-baseline="hanging" text-anchor="end" font-size="20" style="fill:black;stroke:black;stroke-width:0">dmem_ack_i</text>
+<text x="320" y="600" dominant-baseline="hanging" text-anchor="middle" font-size="30" style="fill:black;stroke:black;stroke-width:0">simple_processor</text>
+</g>
+</svg>
