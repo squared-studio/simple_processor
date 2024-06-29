@@ -36,8 +36,8 @@ Design a simple processor that performs some simple arithmetic & logical operati
 |**STORE**  |Stores the 32b value from Source Register 2 (RS2) in memory at byte address in Source Register 1 (RS1).                                        |`STORE  RS2 RS1`    |`mem[RS1] = RS2` |
 |**SLL**    |Left shift the value from Source Register 1 (RS1) by the amount from Source Register (RS2), and store the result in Destination Register (RD). |`SLL    RD  RS1 RS2`|`RD = RS1 >> RS2`|
 |**SLR**    |Right shift the value from Source Register 1 (RS1) by the amount from Source Register (RS2), and store the result in Destination Register (RD).|`SLR    RD  RS1 RS2`|`RD = RS1 << RS2`|
-|**SLLI**   |Left shift the value from Source Register 1 (RS1) by the amount from Immediate Value (IMM), and store the result in Destination Register (RD). |`SLLI   RD  RS1 RS2`|`RD = RS1 >> IMM`|
-|**SLRI**   |Right shift the value from Source Register 1 (RS1) by the amount from Immediate Value (IMM), and store the result in Destination Register (RD).|`SLRI   RD  RS1 RS2`|`RD = RS1 << IMM`|
+|**SLLI**   |Left shift the value from Source Register 1 (RS1) by the amount from Immediate Value (IMM), and store the result in Destination Register (RD). |`SLLI   RD  RS1 IMM`|`RD = RS1 >> IMM`|
+|**SLRI**   |Right shift the value from Source Register 1 (RS1) by the amount from Immediate Value (IMM), and store the result in Destination Register (RD).|`SLRI   RD  RS1 IMM`|`RD = RS1 << IMM`|
 
 ### Instruction Encoding
 The following diagram shows different field within the instruction along with their encoding.
