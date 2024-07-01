@@ -14,7 +14,7 @@ Design a simple processor that performs some simple arithmetic & logical operati
 |Register Name|Register Address|Reset Value|Description             |
 |-------------|----------------|-----------|------------------------|
 |ZERO         |0x0             |0x0000     |Hardwired to Zero       |
-|X1           |0x0             |0x0000     |General Purpose Register|
+|X1           |0x1             |0x0000     |General Purpose Register|
 |X2           |0x2             |0x0000     |General Purpose Register|
 |X3           |0x3             |0x0000     |General Purpose Register|
 |X4           |0x4             |0x0000     |General Purpose Register|
