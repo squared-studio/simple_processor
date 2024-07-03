@@ -2,7 +2,7 @@
 Author : Foez Ahmed (foez.official@gmail.com)
 */
 
-`include "simple_processor_pkg.sv"
+`include "sp_pkg.sv"
 
 module r2_w1_32b_memory_model_tb;
 
@@ -15,8 +15,8 @@ module r2_w1_32b_memory_model_tb;
   // bring in the testbench essentials functions and macros
   `include "vip/tb_ess.sv"
 
-  import simple_processor_pkg::ADDR_WIDTH;
-  import simple_processor_pkg::DATA_WIDTH;
+  import sp_pkg::ADDR_WIDTH;
+  import sp_pkg::DATA_WIDTH;
 
   //////////////////////////////////////////////////////////////////////////////////////////////////
   //-SIGNALS

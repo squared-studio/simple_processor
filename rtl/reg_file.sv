@@ -1,5 +1,5 @@
 `include "sp_pkg.sv"
-module reg_file 
+module reg_file
     import sp_pkg::*;
 (
     input  logic clk_i,                            // Global clock 
