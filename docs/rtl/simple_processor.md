@@ -12,8 +12,8 @@ Write a markdown documentation for this systemverilog module:
 ## Parameters
 |Name|Type|Dimension|Default Value|Description|
 |-|-|-|-|-|
-|MEM_ADDR_WIDTH|int||32|With of memory address bus|
-|MEM_DATA_WIDTH|int||32|With of memory data bus|
+|MEM_ADDR_WIDTH|int||sp_pkg::ADDR_WIDTH|With of memory address bus|
+|MEM_DATA_WIDTH|int||sp_pkg::DATA_WIDTH|With of memory data bus|
 
 ## Ports
 |Name|Direction|Type|Dimension|Description|

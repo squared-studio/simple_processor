@@ -6,11 +6,11 @@ it and provides 4 Byte data for read operations.
 Author : Foez Ahmed (foez.official@gmail.com)
 */
 
-`include "simple_processor_pkg.sv"
+`include "sp_pkg.sv"
 
 module r2_w1_32b_memory_model
-  import simple_processor_pkg::ADDR_WIDTH;
-  import simple_processor_pkg::DATA_WIDTH;
+  import sp_pkg::ADDR_WIDTH;
+  import sp_pkg::DATA_WIDTH;
 #(
 ) (
     input logic                  clk_i,     // Clock input

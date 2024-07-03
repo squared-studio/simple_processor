@@ -4,8 +4,8 @@ Author : name (email)
 */
 
 module simple_processor #(
-    parameter int MEM_ADDR_WIDTH = 32,  // With of memory address bus
-    parameter int MEM_DATA_WIDTH = 32   // With of memory data bus
+    parameter int MEM_ADDR_WIDTH = sp_pkg::ADDR_WIDTH,  // With of memory address bus
+    parameter int MEM_DATA_WIDTH = sp_pkg::DATA_WIDTH   // With of memory data bus
 ) (
     // Global Synchronous Clock
     input logic clk_i,

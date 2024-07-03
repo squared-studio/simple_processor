@@ -2,13 +2,16 @@
 `define SP_PKG__
 
 package sp_pkg;
-  
-  localparam int NUM_REG = 8;
-  localparam int REG_ADDR_WIDTH = $clog2(NUM_REG);
-  
-  localparam int ILEN = 16;
-  localparam int XLEN = 32;
-  
+
+  parameter int ADDR_WIDTH = 32;
+  parameter int DATA_WIDTH = 32;
+
+  parameter int NUM_REG = 8;
+  parameter int REG_ADDR_WIDTH = $clog2(NUM_REG);
+
+  parameter int ILEN = 16;
+  parameter int XLEN = 32;
+
   typedef enum logic [3:0] {
     INVAL = 'b0000,
     ADDI  = 'b0001,
@@ -25,7 +28,7 @@ package sp_pkg;
     SLLI  = 'b1110,
     SLRI  = 'b1100
   } func_t;
-  
+
 endpackage
 
 `endif
