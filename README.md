@@ -11,7 +11,7 @@ The repository is structured into several directories, each with a distinct role
 
 - **rtl**: This is where all the design source files are located.
 
-- **sub**: Contains all submodules. **Please note that submodule files are not compiled automatically. They must be manually added in the compile order within the **`config/*/xvlog`** for each Testbench (TB). This file is auto-generated next to the TB top file.**
+- **sub**: Contains all git repository submodules. **Please note that submodule files are not compiled automatically. They must be manually added in the compile order within the **`config/*/xvlog`** for each Testbench (TB). This file is auto-generated next to the TB top file.**
 
 - **tb**: All the Testbenches (TBs) are stored here. Each TB should be in a separate directory that corresponds to the name of the Device Under Test (DUT) module, suffixed with `_tb`. The Testbenches are utilized to verify the design functionality under various scenarios.
 
@@ -19,5 +19,7 @@ The repository is structured into several directories, each with a distinct role
 To know how to use different commands on this repo, type `make help` or just `make` at the repo root and further details with be printed on the terminal.
 
 ## RTL
+[instruction_decoder ](./docs/rtl/instruction_decoder.md)<br>
+[r2_w1_32b_memory_model ](./docs/rtl/r2_w1_32b_memory_model.md)<br>
 [simple_processor ](./docs/rtl/simple_processor.md)<br>
 
