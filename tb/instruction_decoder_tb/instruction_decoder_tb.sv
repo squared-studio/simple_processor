@@ -29,7 +29,7 @@ module instruction_decoder_tb;
     logic [REG_ADDR_WIDTH-1:0] rs1_o;  // rs1 data out
     logic [REG_ADDR_WIDTH-1:0] rs2_o;  // rs2 data out
     logic [          XLEN-1:0] imm_o;  // immediate value
-  } output_o;
+  } output_t;
   //////////////////////////////////////////////////////////////////////////////////////////////////
   //-SIGNALS
   //////////////////////////////////////////////////////////////////////////////////////////////////
@@ -39,7 +39,7 @@ module instruction_decoder_tb;
 
   logic arst_ni = 1;        // ASYNCHRONOUS ACTIVE LOW RESET
   logic  [ILEN-1:0] code_i; // ILEN = 16
-  output_o outs;
+  output_t outs;
 
   //////////////////////////////////////////////////////////////////////////////////////////////////
   //-VARIABLES
@@ -52,7 +52,7 @@ module instruction_decoder_tb;
 
   //Monitor Mailbox For I/O
   mailbox #(logic  [ILEN-1:0]) mon_instr_mbx  = new();
-  mailbox #(output_o) mon_out_mbx    = new();
+  mailbox #(output_t) mon_out_mbx    = new();
 
   //////////////////////////////////////////////////////////////////////////////////////////////////
   //-ASSIGNMENTS
@@ -71,11 +71,9 @@ module instruction_decoder_tb;
     .rs2_o(outs.rs2_o),
     .imm_o(outs.imm_o)
   );
-  
   //////////////////////////////////////////////////////////////////////////////////////////////////
   //-METHODS
   //////////////////////////////////////////////////////////////////////////////////////////////////
-
   task static apply_reset();
     #100ns;
     arst_ni <= 0;
@@ -83,7 +81,7 @@ module instruction_decoder_tb;
     arst_ni <= 1;
     #100ns;
   endtask
-
+  //Driver, Monitor and Scoreboard
   task static driver_monitor_scoreboard();
     fork
       forever begin // in driver
@@ -108,7 +106,7 @@ module instruction_decoder_tb;
 
       forever begin
         logic [ILEN-1:0] instruction;
-        output_o   ins_out;
+        output_t   ins_out;
 
         mon_instr_mbx.get(instruction);
         mon_out_mbx.get(ins_out);
