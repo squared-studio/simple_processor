@@ -308,7 +308,7 @@ module instruction_decoder_tb;
               pass++;
             end
           else fail++;
-        endcase  
+        endcase
       end
     join_none
   endtask
