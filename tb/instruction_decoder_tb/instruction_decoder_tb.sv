@@ -16,10 +16,6 @@ module instruction_decoder_tb;
   import sp_pkg::*;
 
   //////////////////////////////////////////////////////////////////////////////////////////////////
-  //-LOCALPARAMS
-  //////////////////////////////////////////////////////////////////////////////////////////////////
-
-  //////////////////////////////////////////////////////////////////////////////////////////////////
   //-TYPEDEFS
   //////////////////////////////////////////////////////////////////////////////////////////////////
   typedef struct packed {
@@ -113,6 +109,9 @@ module instruction_decoder_tb;
         $display("inputs: %b",instruction);
         $display("Output: %p",ins_out);
 
+  /////////////////////////////////////////////////////////////
+  //-IF_ELSE METHOD
+  /////////////////////////////////////////////////////////////
         // if(instruction[3:0] ==0001) begin
         //   if(ins_out.func_o == ADDI && ins_out.func_valid_o ==1) begin
         //     $display("........................**********");
@@ -212,80 +211,92 @@ module instruction_decoder_tb;
         //   else fail++;
         // end
 
+  /////////////////////////////////////////////////////////////
+  //-CASE METHOD
+  /////////////////////////////////////////////////////////////
         case(instruction[3:0])
-          0001:
+          'b0001:
             if((ins_out.func_o === ADDI) && (ins_out.func_valid_o === '1)) begin
               $display(".............pass...........**********");
               pass++;
             end
             else fail++;
-          0011:
+          'b0011:
             if((ins_out.func_o === ADD) && (ins_out.func_valid_o === '1)) begin
               $display("............pass............**********");
               pass++;
             end
-            else fail++;
-          1011:
+            else begin
+              fail++;
+              $display("func_o=%s",ins_out.func_o);
+            end
+          'b1011:
             if((ins_out.func_o === SUB) && (ins_out.func_valid_o === '1)) begin
               $display(".............pass...........**********");
               pass++;
             end
-            else fail++;
-          0101:
+            else begin
+              fail++;
+              $display("func_o=%s",ins_out.func_o);
+            end
+          'b0101:
             if((ins_out.func_o === AND) && (ins_out.func_valid_o === '1))  begin
               $display(".............pass...........**********");
               pass++;
             end
-          else fail++;
-          1101:
+          else begin
+            fail++;
+            $display("func_o=%s",ins_out.func_o);
+          end
+          'b1101:
             if(ins_out.func_o === OR && ins_out.func_valid_o === '1) begin
               $display("............pass............**********");
               pass++;
             end
             else fail++;
-          1111:
+          'b1111:
             if(ins_out.func_o === XOR && ins_out.func_valid_o === '1)  begin
               $display(".............pass...........**********");
               pass++;
             end
             else fail++;
-          0111:
+          'b0111:
             if(ins_out.func_o === NOT && ins_out.func_valid_o === '1)  begin
               $display(".............pass...........**********");
               pass++;
             end
             else fail++;
-          0010:
+          'b0010:
             if(ins_out.func_o === LOAD && ins_out.func_valid_o === '1)  begin
               $display(".............pass...........**********");
               pass++;
             end
             else fail++;
-          1010:
+          'b1010:
             if(ins_out.func_o === STORE && ins_out.func_valid_o === '1)  begin
               $display("............pass............**********");
               pass++;
             end
             else fail++;
-          0110:
-            if(ins_out.func_o ===SLL && ins_out.func_valid_o === '1)  begin
+          'b0110:
+            if(ins_out.func_o === SLL && ins_out.func_valid_o === '1)  begin
               $display("............pass............**********");
               pass++;
             end
             else fail++;
-          0100:
+          'b0100:
             if(ins_out.func_o === SLR && ins_out.func_valid_o === '1)  begin
               $display(".............pass...........**********");
               pass++;
             end
             else fail++;
-          1110:
+          'b1110:
             if(ins_out.func_o === SLLI && ins_out.func_valid_o === '1)  begin
               $display(".............pass...........**********");
               pass++;
             end
             else fail++;
-          1100:
+          'b1100:
             if(ins_out.func_o === SLRI && ins_out.func_valid_o === '1)  begin
               $display("..............pass..........**********");
               pass++;
@@ -297,7 +308,7 @@ module instruction_decoder_tb;
               pass++;
             end
           else fail++;
-        endcase
+        endcase  
       end
     join_none
   endtask
@@ -315,11 +326,11 @@ module instruction_decoder_tb;
     driver_monitor_scoreboard();
 
     @(posedge clk_i);
-    repeat(100) begin
+    repeat(1000) begin
       dvr_instr_mbx.put($urandom);
     end
 
-    repeat(100) @(posedge clk_i);
+    repeat(1050) @(posedge clk_i);
     $display("%0d/%0d PASSED", pass, pass + fail);
 
     @(posedge clk_i);
