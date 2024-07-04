@@ -89,7 +89,6 @@ module instruction_decoder_tb;
         dvr_instr_mbx.get(ins);
         code_i <= ins;
         @(posedge clk_i);
-        
       end
 
       forever begin // in monitor
@@ -212,6 +211,7 @@ module instruction_decoder_tb;
         //   end
         //   else fail++;
         // end
+
         case(instruction[3:0])
           0001:
             if((ins_out.func_o === ADDI) && (ins_out.func_valid_o === '1)) begin
@@ -219,14 +219,14 @@ module instruction_decoder_tb;
               pass++;
             end
             else fail++;
-          0011:  
-            if((ins_out.func_o === ADD) && (ins_out.func_valid_o === '1))  begin
+          0011:
+            if((ins_out.func_o === ADD) && (ins_out.func_valid_o === '1)) begin
               $display("............pass............**********");
               pass++;
             end
             else fail++;
           1011:
-            if((ins_out.func_o === SUB) && (ins_out.func_valid_o === '1))  begin
+            if((ins_out.func_o === SUB) && (ins_out.func_valid_o === '1)) begin
               $display(".............pass...........**********");
               pass++;
             end
@@ -291,14 +291,14 @@ module instruction_decoder_tb;
               pass++;
             end
             else fail++;
-          default: 
+          default:
             if(ins_out.func_o === INVAL && ins_out.func_valid_o === '0)  begin
               $display("..............pass..........**********");
               pass++;
             end
           else fail++;
         endcase
-      end        
+      end
     join_none
   endtask
 
