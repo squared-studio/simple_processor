@@ -1,12 +1,13 @@
-# reg_file (module)
+# register_file (module)
 
-### Author : 
+### Author : Md Abdullah Al Samad (mdsam.raian@gmail.com)
 
 ## TOP IO
-<img src="./reg_file_top.svg">
+<img src="./register_file_top.svg">
 
 ## Description
 
+Register file for the processor
 
 ## Parameters
 |Name|Type|Dimension|Default Value|Description|
