@@ -2,3 +2,4 @@
 ci_vivado_run:
 	@> ___CI_REPORT;
 	@$(MAKE) vivado TOP=r2_w1_32b_memory_model_tb CONFIG=default
+	@$(MAKE) vivado TOP=instruction_decoder_tb CONFIG=default
