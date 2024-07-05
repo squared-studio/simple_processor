@@ -331,13 +331,10 @@ module instruction_decoder_tb;
     end
 
     repeat(1050) @(posedge clk_i);
-    $display("%0d/%0d PASSED", pass, pass + fail);
-
+    
     @(posedge clk_i);
-    result_print(1, "This is a PASS");
-    @(posedge clk_i);
-    result_print(0, "And this is a FAIL");
-
+    result_print(!fail, $sformatf("%0d/%0d PASSED", pass, pass + fail));
+    
     $finish;
 
   end
