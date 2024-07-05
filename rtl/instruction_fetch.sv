@@ -7,17 +7,17 @@ Author : Md Abdullah Al Samad (mdsam.raian@gmail.com)
 module instruction_fetch
   import sp_pkg::*;
 (
-  input  logic clk_i,
-  input  logic arst_ni,
+  input  logic clk_i,                         // global clock
+  input  logic arst_ni,                       // global asynchronous reset
 
-  input  logic valid_i,
-  input  logic [ADDR_WIDTH-1:0] boot_addr_i,
-  input  logic imem_ack_i,
+  input  logic valid_i,                       // valid
+  input  logic [ADDR_WIDTH-1:0] boot_addr_i,  // boot_address if not valid
+  input  logic imem_ack_i,                    //acknowledge from instruction memory
 
-  input  logic [DATA_WIDTH-1:0] imem_rdata_i,
-  output logic imem_req_o,
-  output logic [ADDR_WIDTH-1:0] pc_out,
-  output logic [DATA_WIDTH-1:0] instruction_o
+  input  logic [DATA_WIDTH-1:0] imem_rdata_i, // data from instruction memory
+  output logic imem_req_o,                    // request for instruction data
+  output logic [ADDR_WIDTH-1:0] pc_out,       // program counter
+  output logic [DATA_WIDTH-1:0] instruction_o // instruction for ID
 );
 
   //////////////////////////////////////////////////////////////////////////////////////////////////
