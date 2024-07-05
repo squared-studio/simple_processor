@@ -56,6 +56,7 @@ for i in range(len(lines)):
     for j in range(len(words)):
         # replace register with address
         if words[j] == "ZERO": words[j] = "000"
+        elif words[j] == "X0": words[j] = "000"
         elif words[j] == "X1": words[j] = "001"
         elif words[j] == "X2": words[j] = "010"
         elif words[j] == "X3": words[j] = "011"
@@ -89,7 +90,7 @@ for i in range(len(lines)):
     elif words[0] == "XOR"   : bins.append(f"{words[1]}{words[2]}{words[3]}0001111")
     elif words[0] == "NOT"   : bins.append(f"{words[1]}{words[2]}0000000111")
     elif words[0] == "LOAD"  : bins.append(f"{words[1]}{words[2]}0000000010")
-    elif words[0] == "STORE" : bins.append(f"000{words[2]}{words[1]}1010")
+    elif words[0] == "STORE" : bins.append(f"000{words[2]}{words[1]}0001010")
     elif words[0] == "SLL"   : bins.append(f"{words[1]}{words[2]}{words[3]}0000110")
     elif words[0] == "SLR"   : bins.append(f"{words[1]}{words[2]}{words[3]}0000100")
     elif words[0] == "SLLI"  : bins.append(f"{words[1]}{words[2]}{words[3]}1110")

@@ -77,7 +77,7 @@ void model_dis_asm(int instr) {
     case SLR   : printf("SLR   X%0d X%0d X%0d\n", RD, RS1, RS2); break;
     case SLLI  : printf("SLLI  X%0d X%0d %0d\n" , RD, RS1, IMM); break;
     case SLRI  : printf("SLRI  X%0d X%0d %0d\n" , RD, RS1, IMM); break;
-    default    : printf("INVALID");                              break;
+    default    : printf("INVALID\n");                            break;
   }
 }
 

@@ -68,8 +68,9 @@ module simple_processor_tb;
   // void model_step();
   import model_pkg::model_step;
 
-  import simple_processor_pkg::ADDR_WIDTH;
-  import simple_processor_pkg::DATA_WIDTH;
+  import sp_pkg::ADDR_WIDTH;
+  import sp_pkg::DATA_WIDTH;
+  import sp_pkg::NUM_REG;
 
   //////////////////////////////////////////////////////////////////////////////////////////////////
   //-LOCALPARAMS
@@ -95,7 +96,7 @@ module simple_processor_tb;
   logic                  imem_ack_i;
 
   logic                  dmem_req_o;
-  logic                  dmem_we_o;
+  logic                  dmem_wr_o;
   logic [ADDR_WIDTH-1:0] dmem_addr_o;
   logic [DATA_WIDTH-1:0] dmem_wdata_o;
   logic [DATA_WIDTH-1:0] dmem_rdata_i;
@@ -104,6 +105,9 @@ module simple_processor_tb;
   //////////////////////////////////////////////////////////////////////////////////////////////////
   //-VARIABLES
   //////////////////////////////////////////////////////////////////////////////////////////////////
+
+  int                    pass;
+  int                    fail;
 
   //////////////////////////////////////////////////////////////////////////////////////////////////
   //-INTERFACES
@@ -135,7 +139,7 @@ module simple_processor_tb;
       .imem_rdata_i,
       .imem_ack_i,
       .dmem_req_o,
-      .dmem_we_o,
+      .dmem_wr_o,
       .dmem_addr_o,
       .dmem_wdata_o,
       .dmem_rdata_i,
@@ -145,7 +149,7 @@ module simple_processor_tb;
   // Model to act as main memory
   r2_w1_32b_memory_model mMEM (
       .clk_i,
-      .we_i(dmem_we_o),
+      .we_i(dmem_wr_o),
       .w_addr_i(dmem_addr_o),
       .w_data_i(dmem_wdata_o),
       .r0_addr_i(dmem_addr_o),
@@ -166,9 +170,32 @@ module simple_processor_tb;
     #100ns;
   endtask
 
-  //////////////////////////////////////////////////////////////////////////////////////////////////
-  //-SEQUENTIALS
-  //////////////////////////////////////////////////////////////////////////////////////////////////
+  task static start_checking();
+    fork
+      forever begin
+        bit OK;
+        OK = 1;
+        @(posedge clk_i or negedge arst_ni);
+        if (arst_ni === 0) begin
+          model_set_PC(boot_addr_i);
+          for (int i = 0; i < NUM_REG; i++) begin
+            model_set_GPR(i, 0);
+          end
+        end else if (arst_ni === 1) begin
+          model_step();
+          // TODO TO CHECK
+          // - REGFILE
+          // - DMEM
+          // - PC
+          if (OK) pass++;
+          else begin
+            $fatal(1, "RTL - Model Deviated");
+            fail++;
+          end
+        end
+      end
+    join_none
+  endtask
 
   //////////////////////////////////////////////////////////////////////////////////////////////////
   //-PROCEDURALS
@@ -178,25 +205,24 @@ module simple_processor_tb;
 
     mMEM.clear();
 
+    boot_addr_i <= 'h1000;
+
     model_load("all_test.hex");
     mMEM.load("all_test.hex");
 
+    start_checking();
+
     apply_reset();
+
     start_clk_i();
 
-    model_set_PC('h1000);
-
-
-    repeat (13) begin
-      @(posedge clk_i);
-      model_step();
-    end
+    repeat (20) @(posedge clk_i);
 
     // C model is an separetely running program causing
     // race condition with printf & $display
     #100ns;
 
-    result_print(1, "MODEL ONLY");
+    result_print(!fail, "MODEL ONLY");
 
     $finish;
 
