@@ -16,7 +16,7 @@ module instruction_fetch
   output logic [ILEN-1:0] instruction_o,      // instruction for ID
 
   output logic imem_req_o,                    // request for instruction data
-  output logic [ADDR_WIDTH-1:0] imem_addr_o,  // instruction memory address 
+  output logic [ADDR_WIDTH-1:0] imem_addr_o,  // instruction memory address
 
   input  logic [ILEN-1:0] imem_rdata_i,       // data from instruction memory
   input  logic imem_ack_i                     //acknowledge from instruction memory
