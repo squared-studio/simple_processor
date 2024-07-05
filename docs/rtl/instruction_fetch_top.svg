@@ -1,23 +1,23 @@
-<svg height="390" width="390" xmlns="http://www.w3.org/2000/svg">
+<svg height="690" width="690" xmlns="http://www.w3.org/2000/svg">
 <rect width="100%" height="100%" x="0" y="0" style="fill:white;stroke:white;stroke-width:0"/>
 <g style="fill:white;stroke:black;stroke-width:1">
-<rect width="275" height="275" x="60" y="60"/>
+<rect width="575" height="575" x="60" y="60"/>
 <polygon points="10,95 10,85 30,85 40,95 60,95 40,95 30,105 10,105 10,95"/>
-<text x="65" y="85" dominant-baseline="hanging" text-anchor="start" font-size="20" style="fill:black;stroke:black;stroke-width:0">imem_rdata_i</text>
-<polygon points="10,145 20,135 40,135 40,145 60,145 40,145 40,155 20,155 10,145"/>
-<text x="65" y="135" dominant-baseline="hanging" text-anchor="start" font-size="20" style="fill:black;stroke:black;stroke-width:0">imem_req_o</text>
-<polygon points="10,195 20,185 40,185 40,195 60,195 40,195 40,205 20,205 10,195"/>
-<text x="65" y="185" dominant-baseline="hanging" text-anchor="start" font-size="20" style="fill:black;stroke:black;stroke-width:0">pc_out</text>
-<polygon points="10,245 20,235 40,235 40,245 60,245 40,245 40,255 20,255 10,245"/>
-<text x="65" y="235" dominant-baseline="hanging" text-anchor="start" font-size="20" style="fill:black;stroke:black;stroke-width:0">instruction_o</text>
-<polygon points="335,95 355,95 365,85 375,85 385,95 375,105 365,105 355,95 335,95"/>
-<text x="330" y="85" dominant-baseline="hanging" text-anchor="end" font-size="20" style="fill:black;stroke:black;stroke-width:0">clk_i</text>
-<polygon points="335,145 355,145 365,135 375,135 385,145 375,155 365,155 355,145 335,145"/>
-<text x="330" y="135" dominant-baseline="hanging" text-anchor="end" font-size="20" style="fill:black;stroke:black;stroke-width:0">arst_ni</text>
-<polygon points="335,245 355,245 365,235 375,235 385,245 375,255 365,255 355,245 335,245"/>
-<text x="330" y="235" dominant-baseline="hanging" text-anchor="end" font-size="20" style="fill:black;stroke:black;stroke-width:0">valid_i</text>
-<polygon points="335,295 355,295 365,285 385,285 385,295 385,305 365,305 355,295 335,295"/>
-<text x="330" y="285" dominant-baseline="hanging" text-anchor="end" font-size="20" style="fill:black;stroke:black;stroke-width:0">imem_ack_i</text>
-<text x="195" y="350" dominant-baseline="hanging" text-anchor="middle" font-size="30" style="fill:black;stroke:black;stroke-width:0">instruction_fetch</text>
+<text x="65" y="85" dominant-baseline="hanging" text-anchor="start" font-size="20" style="fill:black;stroke:black;stroke-width:0">clk_i</text>
+<polygon points="10,145 10,135 30,135 40,145 60,145 40,145 30,155 10,155 10,145"/>
+<text x="65" y="135" dominant-baseline="hanging" text-anchor="start" font-size="20" style="fill:black;stroke:black;stroke-width:0">arst_ni</text>
+<polygon points="10,245 10,235 30,235 40,245 60,245 40,245 30,255 10,255 10,245"/>
+<text x="65" y="235" dominant-baseline="hanging" text-anchor="start" font-size="20" style="fill:black;stroke:black;stroke-width:0">valid_i</text>
+<polygon points="10,345 10,335 30,335 40,345 60,345 40,345 30,355 10,355 10,345"/>
+<text x="65" y="335" dominant-baseline="hanging" text-anchor="start" font-size="20" style="fill:black;stroke:black;stroke-width:0">imem_ack_i</text>
+<polygon points="10,445 10,435 30,435 40,445 60,445 40,445 30,455 10,455 10,445"/>
+<text x="65" y="435" dominant-baseline="hanging" text-anchor="start" font-size="20" style="fill:black;stroke:black;stroke-width:0">imem_rdata_i</text>
+<polygon points="10,495 20,485 40,485 40,495 60,495 40,495 40,505 20,505 10,495"/>
+<text x="65" y="485" dominant-baseline="hanging" text-anchor="start" font-size="20" style="fill:black;stroke:black;stroke-width:0">imem_req_o</text>
+<polygon points="10,545 20,535 40,535 40,545 60,545 40,545 40,555 20,555 10,545"/>
+<text x="65" y="535" dominant-baseline="hanging" text-anchor="start" font-size="20" style="fill:black;stroke:black;stroke-width:0">pc_out</text>
+<polygon points="10,595 20,585 40,585 40,595 60,595 40,595 40,605 20,605 10,595"/>
+<text x="65" y="585" dominant-baseline="hanging" text-anchor="start" font-size="20" style="fill:black;stroke:black;stroke-width:0">instruction_o</text>
+<text x="345" y="650" dominant-baseline="hanging" text-anchor="middle" font-size="30" style="fill:black;stroke:black;stroke-width:0">instruction_fetch</text>
 </g>
 </svg>
