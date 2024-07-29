@@ -13,10 +13,10 @@ module r2_w1_32b_memory_model
   import sp_pkg::DATA_WIDTH;
 #(
 ) (
-    input logic                  clk_i,     // Clock input
-    input logic                  we_i,      // Write enable input
-    input logic [ADDR_WIDTH-1:0] w_addr_i,  // Write address input
-    input logic [DATA_WIDTH-1:0] w_data_i,  // Write data input
+    input logic                  clk_i,       // Clock input
+    input logic                  we_i,        // Write enable input
+    input logic [ADDR_WIDTH-1:0] w_addr_i,    // Write address input
+    input logic [DATA_WIDTH-1:0] w_data_i,    // Write data input
 
     input  logic [ADDR_WIDTH-1:0] r0_addr_i,  // Read port 0 address input
     output logic [DATA_WIDTH-1:0] r0_data_o,  // Read port 0 data output
