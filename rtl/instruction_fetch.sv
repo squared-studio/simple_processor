@@ -7,33 +7,36 @@ Author : Md Abdullah Al Samad (mdsam.raian@gmail.com)
 module instruction_fetch
   import sp_pkg::*;
 (
-  input logic imem_ack_i,
-  input logic [ADDR_WIDTH-1:0] pc_out_i,
-  input logic [DATA_WIDTH-1:0] imem_rdata_i,
-  output logic imem_req_o,
-  output logic [ADDR_WIDTH-1:0] pc_out_o,
-  output logic [DATA_WIDTH-1:0] instruction_o
-);
+  input  logic clk_i,                         // global clock
+  input  logic arst_ni,                       // global asynchronous reset
 
-  //////////////////////////////////////////////////////////////////////////////////////////////////
-  //-SIGNALS
-  //////////////////////////////////////////////////////////////////////////////////////////////////
+  input  logic valid_i,                       // valid
+  input  logic [ADDR_WIDTH-1:0] boot_addr_i,  // boot_address if not valid
+
+  output logic [ILEN-1:0] instruction_o,      // instruction for ID
+
+  output logic imem_req_o,                    // request for instruction data
+  output logic [ADDR_WIDTH-1:0] imem_addr_o,  // instruction memory address
+
+  input  logic [ILEN-1:0] imem_rdata_i,       // data from instruction memory
+  input  logic imem_ack_i                     //acknowledge from instruction memory
+);
 
   //////////////////////////////////////////////////////////////////////////////////////////////////
   //-ASSIGNMENTS
   //////////////////////////////////////////////////////////////////////////////////////////////////
   assign imem_req_o = 1;
-  assign pc_out_o = pc_out_i;
+  assign instruction_o = (imem_ack_i)?imem_rdata_i:'0;
 
   //////////////////////////////////////////////////////////////////////////////////////////////////
-  //-SEQUENTIALS
+  //-PROCEDURAL
   //////////////////////////////////////////////////////////////////////////////////////////////////
-
-  always_comb begin
-    if (imem_ack_i) begin
-      instruction_o = imem_rdata_i;
-    end
+  always_ff @(posedge clk_i or negedge arst_ni) begin
+    if(arst_ni==0) imem_addr_o <= '0;
+    else if (valid_i==1) imem_addr_o <= imem_addr_o + 2;
+    else imem_addr_o <= boot_addr_i;
   end
+
   //////////////////////////////////////////////////////////////////////////////////////////////////
   //-INITIAL CHECKS
   //////////////////////////////////////////////////////////////////////////////////////////////////
