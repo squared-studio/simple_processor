@@ -14,7 +14,7 @@ module load_store
   input logic [DATA_WIDTH-1:0] rs1_addr_i,// Address input from register source 1
   input logic [DATA_WIDTH-1:0] rs2_data_i,// Data input from register source 2
   input func_t opcode_i,                  // Opcode input to specify load or store operation
-  
+
   output logic dmem_req_o,                // Data memory request signal
   output logic dmem_wr_o,                 // Data memory write enable signal
   output logic [ADDR_WIDTH-1:0] dmem_addr_o, // Data memory address output
@@ -37,7 +37,7 @@ module load_store
       dmem_wdata_o <= 0;
       rd_reg_o <= 0;
     end else begin
-      case(opcode_i) 
+      case(opcode_i)
         4'b0010: begin // Load operation
           dmem_req_o <= 1;
           dmem_wr_o <= 0;

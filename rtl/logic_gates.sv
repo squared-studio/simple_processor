@@ -39,4 +39,3 @@ module logic_gates
 `endif  // SIMULATION
 
 endmodule
-
