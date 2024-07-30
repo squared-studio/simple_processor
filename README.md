@@ -21,8 +21,12 @@ To know how to use different commands on this repo, type `make help` or just `ma
 ## RTL
 [instruction_decoder ](./docs/rtl/instruction_decoder.md)<br>
 [instruction_fetch ](./docs/rtl/instruction_fetch.md)<br>
+[load_store ](./docs/rtl/load_store.md)<br>
+[logic_gates ](./docs/rtl/logic_gates.md)<br>
 [r2_w1_32b_memory_model ](./docs/rtl/r2_w1_32b_memory_model.md)<br>
 [register_file ](./docs/rtl/register_file.md)<br>
 [shift ](./docs/rtl/shift.md)<br>
 [simple_processor ](./docs/rtl/simple_processor.md)<br>
+
+## INCLUDE
 
